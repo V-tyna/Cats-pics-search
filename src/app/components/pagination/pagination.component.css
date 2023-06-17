@@ -1,0 +1,11 @@
+.paginator-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.paginator {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}

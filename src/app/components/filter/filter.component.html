@@ -1,0 +1,25 @@
+<div class="filter-container">
+  <mat-form-field hintLabel="Max 20 characters">
+    <mat-label>Enter breed</mat-label>
+    <input
+      matInput
+      #input
+      maxlength="20"
+      placeholder="Cat breed"
+      (input)="onBreedFilterChanged($event)"
+    />
+    <mat-hint align="end">{{ input.value.length }}/20</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Select breed</mat-label>
+    <mat-select
+      [value]="breedTypes[0]"
+      (selectionChange)="onSelectionChange($event)"
+    >
+      <mat-option *ngFor="let breedType of breedTypes" [value]="breedType">
+        {{ breedType }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

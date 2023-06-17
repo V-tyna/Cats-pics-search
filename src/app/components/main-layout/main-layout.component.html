@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div *ngIf="cats$ | async as cats; else loader" class="card-container">
+    <div *ngIf="cats.length; else noData" class="card-container">
+      <div *ngFor="let cat of cats" class="card">
+        <mat-card>
+          <mat-card-header class="card-header">
+            <mat-card-title>{{ cat?.breed_ids || "cat" }}</mat-card-title>
+          </mat-card-header>
+          <div class="card-image">
+            <img mat-card-image [src]="cat.url" [alt]="cat.id + 'cat'" />
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loader> loading... </ng-template>
+<ng-template #noData> Sorry, there is no such breed... </ng-template>
