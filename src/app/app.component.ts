@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.cats$ = this.httpService.getAllCats({ page: this.paginationData.pageIndex, limit: this.paginationData.catsPerPage });
     } else {
       this.cats$ = of(this.filteredCats$).pipe(map((cats: Cat[]) => {
-        const start = (this.paginationData.startFromIndex - 1) >= 0 ? this.paginationData.startFromIndex - 1 : 0;
+        const start = this.paginationData.startFromIndex;
         const end = this.paginationData.catsPerPage * (this.paginationData.pageIndex + 1);
         return cats.slice(start, end);
       }));
